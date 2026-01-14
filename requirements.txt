@@ -1,0 +1,12 @@
+selenium
+RealtimeSTT
+pygame
+google
+google-genai
+pydantic
+pillow 
+pywin32
+openai
+boto3
+botocore
+sounddevice
