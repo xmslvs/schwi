@@ -1,3 +1,13 @@
 venv/
 notes.txt
 api_keys.py
+__pycache__/
+.DS_Store
+.env
+realtimesst.log
+.venv/
+schwi-dev/
+outputs/
+screen_2.png
+screen_1.png
+screen_0.png

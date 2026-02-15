@@ -1,9 +1,13 @@
 from google import genai
 from google.genai import types
-from api_keys import client_key, client_flash_lite_key
+from dotenv import load_dotenv
 import os
 import time
 from pydantic import BaseModel
+
+load_dotenv()
+client_key = os.getenv("client_key")
+client_flash_lite_key = os.getenv("client_flash_lite_key")
 
 gemini_client = genai.Client(api_key=client_key)
 gemini_flash_lite_client = genai.Client(api_key=client_flash_lite_key)

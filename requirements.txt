@@ -10,3 +10,10 @@ openai
 boto3
 botocore
 sounddevice
+websocket-client==1.8.0
+websockets
+pyaudio
+python-dotenv
+chromadb 
+sentence-transformers
+groq

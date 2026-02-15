@@ -6,16 +6,15 @@ import time
 import random
 
 #TODO: implement youtube live chat choose function
-YouTubeLink = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"  # Replace with actual live chat link
-MINWAIT = 20 # minimum wait time for new comment
-MAXWAIT = 30 # maximum wait time for new comment
+MINWAIT = 60 # minimum wait time for new comment
+MAXWAIT = 61 # maximum wait time for new comment
+YoutubeLink = "https://www.youtube.com/watch?v=5qap5aO4i9A" # default YouTube live stream link
 
-
-def youtube_init():
+def youtube_init(YoutubeLink):
     global numberOfComments
     driver = webdriver.Firefox()
     print("webdriver initialized")
-    driver.get(YouTubeLink)
+    driver.get(YoutubeLink)
     print("YouTube link get")
     initialWait = WebDriverWait(driver, 60)
     print("webdriver waited")
@@ -45,9 +44,13 @@ def youtube_input(driver):
             print("new comment found")
             numberOfComments += 1
             print(newCommentAuthorData.text + ": " + newCommentTextData.text)  #prints current user's comment
-            newCommentData = {"user": newCommentAuthorData.text, "response": newCommentTextData.text, "response_datetime": time.ctime()}
+            newCommentData = {
+                "user": newCommentAuthorData.text, 
+                "response": newCommentTextData.text, 
+                "response_datetime": time.ctime()
+                }
             return newCommentData
     print("no new comment found after waiting")
-    return None
+    return ""
     
 
