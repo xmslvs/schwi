@@ -11,3 +11,7 @@ outputs/
 screen_2.png
 screen_1.png
 screen_0.png
+chroma_storage/
+user_data.db
+input.txt
+output.txt
