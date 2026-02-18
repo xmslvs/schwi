@@ -47,10 +47,15 @@ def youtube_input(driver):
             newCommentData = {
                 "user": newCommentAuthorData.text, 
                 "response": newCommentTextData.text, 
-                "response_datetime": time.ctime()
+                "response_datetime": time.time_ns()
                 }
             return newCommentData
     print("no new comment found after waiting")
-    return ""
+    newCommentData = {
+                "user": "", 
+                "response": "", 
+                "response_datetime": time.time_ns()
+                }
+    return newCommentData
     
 

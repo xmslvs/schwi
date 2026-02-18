@@ -17,3 +17,4 @@ python-dotenv
 chromadb 
 sentence-transformers
 groq
+aiosqlite

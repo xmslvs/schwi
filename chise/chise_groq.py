@@ -15,7 +15,7 @@ from saya import saya_polly
 current_dir = os.getcwd()
 
 
-def system_prompt(input, past_log, screen_info):
+def system_prompt(input, past_log, screen_info, user_summary, past_responses):
     prompt = f"""
 PROMPT OVERVIEW:
 You MUST ALWAYS follow the instructions specified in this prompt. 
@@ -143,6 +143,11 @@ PAST CONVERSATION LOG:
 NEW RECEIVED MESSAGE:
 You have a new message from a viewer. The new message is as follows: {input}
 
+You have information about the user who sent the new message. The user's summary information is as follows: {user_summary}
+
+Your past responses from similar messages are as follows: {past_responses}. 
+You can use this information to help you generate your response, but you should not feel obligated to reference it if it does not fit naturally into your response.
+
 SCREEN_CONTEXT:
 The scren context below records the past 4 seconds of what has happened on screen: 
 You may use this screen information as a livestreamer does when streaming, referring to it of your own volition or pointing out interesting 
@@ -158,7 +163,7 @@ All responses MUST be in the following JSON format:
 {{
 “user”: “Sairo”,
 “response”: [generated response],
-“response_datetime”: "{time.ctime()}",
+“response_datetime”: "{time.time_ns()}",
 “emotion_state”: [ALWAYS selected from EMOTIONS_LIST],
 “emotion_intensity”: [float from 0 to 1],
 “action”: [generated action describing how Sairo would act in response]
